@@ -1,0 +1,33 @@
+#lista de contatos
+print("lista de contatos carregada")
+menu = input("você deseja adcionar um contato ou ver os contatos?\n")
+menu = str(menu)
+if menu == "adcionar":
+    contatos = input("digite o nome do contato que voce quer salvar\n")
+    contatos = str(contatos)
+    telefone = input("digite o telefone\n")
+    telefone = str(telefone)
+    agenda = open("agenda.txt", "a+")
+    agenda.write("nome: " + contatos + " telefone: " + telefone + '\n')
+    agenda.close()
+    print("contato " + contatos + " com o telefone " + telefone + " Ssalvo com sucesso!")
+    repeticao = input("deseja adicionar outro contato ?")
+    repeticao = str(repeticao)
+    while repeticao == "sim":
+            contatos = input("digite o nome do contato que voce quer salvar\n")
+            contatos = str(contatos)
+            telefone = input("digite o telefone\n")
+            telefone = str(telefone)
+            agenda = open("agenda.txt", "a+")
+            agenda.write("nome: " + contatos + " telefone: " + telefone + '\n')
+            agenda.close()
+            print("contato " + contatos + " com o telefone " + telefone + " Ssalvo com sucesso!")
+            repeticao = input("deseja adicionar outro contato ?\n")
+            repeticao = str(repeticao)
+    if repeticao != "sim":
+        menu = input("você digita adcionar um contato ou ver os contatos?\n")
+        menu = str(menu)
+elif menu == "ver":
+    agenda = open("agenda.txt", "r+")
+    print(agenda.readlines())
+    agenda.close()
